@@ -16,7 +16,7 @@ def process_data():
         print(f"Trying to load file from local file: {file_name}")
         xls = pd.ExcelFile(file_name)
         df = pd.read_excel(xls, sheet_name=0)
-        print(f"Loaded data from local file. Available sheets:{xls.sheet_names}")
+        print(f"Loaded data from local file. Available sheets: {xls.sheet_names}")
 
     # Clean and print column names
     df.columns = df.columns.str.strip().str.upper()
