@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import process_data
 import sqlite3
 
 app = Flask(__name__)
@@ -30,11 +31,10 @@ def get_well_data():
             "brine": brine
         })
     else:
-        return jsonify({"error": "Well not found"}), 404
+        return jsonify({"error": "Data not found"}), 404
 
 
 if __name__ == '__main__':
-    import process_data
     process_data.process_data()
 
     app.run(port=8080)
